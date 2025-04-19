@@ -7,15 +7,22 @@ available_parts = {"1": "computer",
                    }
 
 current_choice = None
-chosen_parts = []
+shopping_cart = []
 
 while current_choice != "0":
     if current_choice in available_parts:
-        chosen_part = available_parts[current_choice]
-        print(f"Adding {chosen_part}")
+
+        if available_parts[current_choice] in shopping_cart:
+            shopping_cart.remove(available_parts[current_choice])
+            print("Your cart contain: ", shopping_cart)
+
+        else:
+            shopping_cart.append(available_parts[current_choice])
+            print("Your cart contain: ", shopping_cart)
 
     else:
         print("Choose an item from a list to add")
+        print("Your cart contain: ", shopping_cart, "\n")
         for key, value in available_parts.items():
             print(key, value, sep=" - ")
 
