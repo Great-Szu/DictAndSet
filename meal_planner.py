@@ -16,7 +16,7 @@ def create_shoppinglist(food_items: dict) -> str:
 
     with open(path, 'a') as file:
         for item, quantity in food_items.items():
-            file.write(f"{item}:\n {quantity}\n")
+            file.write(f"{item}: {quantity}\n")
     return path
 
 # display_dict = {str(index + 1): meal for index, meal in enumerate(recipes)}
@@ -34,7 +34,6 @@ while True:
 
     choice = input(": ")
     list_of_items_to_buy = {}
-    dont_have_idea_for_name = {}
 
     if choice == "0":
         break
@@ -53,10 +52,9 @@ while True:
                 print(f"\t{value} OK")
             else:
                 quantity_to_buy = required_quantity - quantity_in_pantry
-                dont_have_idea_for_name[value] = quantity_to_buy
-                list_of_items_to_buy[selected_item] = dont_have_idea_for_name
+                list_of_items_to_buy[value] = quantity_to_buy
                 print(f"\tYou need to buy {quantity_to_buy} of {value}")
 
         print("\nCreating shopping list of missing ingredients...")
-        create_shoppinglist(list_of_items_to_buy)
+
         print(f"Shopping list is here {create_shoppinglist(list_of_items_to_buy)}")
