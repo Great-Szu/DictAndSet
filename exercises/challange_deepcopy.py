@@ -5,7 +5,9 @@ animals = {
 }
 
 def coping_deep(your_dict: dict) -> dict:
+
     your_dict_deepcopy = {}
+
     for key, value in your_dict.items():
         your_dict_deepcopy[key] = list(value)
 
